@@ -7,27 +7,6 @@ const InputBox = () => {
     //state data
     const [newMessage, setNewMessage] = useState('');
 
-    const onSend = async () => {
-
-        console.warn('Sending a new message');
-        const requestOptions={
-            method:'POST',
-            headers:{ 'Content-type':'application/json'},
-            body: JSON.stringify({
-                message : `${newMessage}`,
-                sent_user_id: 0,
-                received_user_id:1
-            })
-        }
-        console.log(requestOptions)
-        // try { 
-            await fetch('https://localhost:5001/set-new-message', requestOptions)
-        // } catch (error) {
-        //     console.error(error)
-        // }
-        setNewMessage('');
-    };
-
     return (
         <View style={styles.container}>
             <AntDesign name='plus' size={20} color="royalblue" />
