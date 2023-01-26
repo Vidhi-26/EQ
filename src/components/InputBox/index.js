@@ -1,21 +1,28 @@
 import { useState } from 'react';
 import { View, TextInput, StyleSheet, Text } from 'react-native';
 import {AntDesign, MaterialIcons} from '@expo/vector-icons';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const InputBox = () => {
 
     //state data
     const [newMessage, setNewMessage] = useState('');
 
+    const onSend = () => {
+        console.warn('Sending a new message: ', newMessage);
+    
+        setNewMessage('');
+    };
+
     return (
-        <View style={styles.container}>
+        <SafeAreaView edges={['bottom']} style={styles.container}>
             <AntDesign name='plus' size={20} color="royalblue" />
             <TextInput  value={newMessage} 
                         onChangeText={setNewMessage}
                         style={styles.input} 
                         placeholder="type your message..." />
             <MaterialIcons onPress={onSend} style={styles.send} name='send' size={16} color="white" />
-        </View>
+        </SafeAreaView>
     );
 };
 

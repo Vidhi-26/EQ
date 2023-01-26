@@ -14,8 +14,8 @@ const ChatScreens = () =>{
     navigation.setOptions({title: route.params.name});
 
     useEffect(() => {
-        navigation.setOptions({title: route.params.name });
-    }); [route.params.name]; 
+        navigation.setOptions({ title: route.params.name });
+      }, [route.params.name]);
 
     return( 
         <ImageBackground source={bg} style={styles.bg}>
